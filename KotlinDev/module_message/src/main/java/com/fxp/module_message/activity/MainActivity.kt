@@ -1,12 +1,13 @@
-package com.fxp.module_message
+package com.fxp.module_message.activity
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.fxp.module_message.R
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     }
+
 }
