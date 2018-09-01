@@ -12,14 +12,14 @@
         android:src="@mipmap/icon_back_64"/>
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/middle_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/left_btn"
         android:layout_marginLeft="15dp"
         android:layout_centerVertical="true"
         android:textSize="20sp"
-        android:text="我的消息"/>
+        android:text="Title"/>
 
     <Button
         android:id="@+id/right_btn"
