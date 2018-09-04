@@ -3,17 +3,25 @@ package com.fxp.module_message.fragment
 import android.app.Activity
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.fxp.module_message.R
+import com.fxp.module_message.adapter.PrivateMsgAdapter
+import com.fxp.module_message.model.PrivateMsgModel
 
 class PrivateMsgFragment: Fragment() {
 
     private val TAG: String = "PrivateMsgFragment"
 
     private var mainView: View? = null
+
+    private lateinit var privateMsgRecyclerView: RecyclerView
+
+    private lateinit var privateMsgAdapter: PrivateMsgAdapter
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -45,6 +53,24 @@ class PrivateMsgFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         println("PrivateMsgFragment onViewCreated")
+
+        privateMsgRecyclerView = mainView!!.findViewById(R.id.private_msg_recyclerView) as RecyclerView
+        val layoutManager = LinearLayoutManager(context)
+        layoutManager.orientation = LinearLayoutManager.VERTICAL
+        privateMsgRecyclerView.layoutManager = layoutManager
+
+        privateMsgAdapter = PrivateMsgAdapter(context, getPrivateMsgData())
+        privateMsgRecyclerView.adapter = privateMsgAdapter
+    }
+
+    fun getPrivateMsgData():MutableList<PrivateMsgModel>{
+        var privateMsgList: MutableList<PrivateMsgModel> = mutableListOf()
+        for (i in 1..10){
+            var privateMsg: PrivateMsgModel? = PrivateMsgModel()
+            privateMsg!!.msgContent = "123"
+            privateMsgList.add(privateMsg)
+        }
+        return privateMsgList
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
