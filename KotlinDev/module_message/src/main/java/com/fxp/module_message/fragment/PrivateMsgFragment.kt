@@ -48,7 +48,11 @@ class PrivateMsgFragment : BaseFragment(), SwipeRefreshLayout.OnRefreshListener 
         var privateMsgList: MutableList<PrivateMsgModel> = mutableListOf()
         for (i in 1..50){
             var privateMsg: PrivateMsgModel? = PrivateMsgModel()
-            privateMsg!!.msgContent = "123"
+            privateMsg!!.userPhoto = ""
+            privateMsg!!.userName = "哥尔·D·罗杰"
+            privateMsg!!.msgTime = "9月5日"
+            privateMsg!!.msgContent = "想要我的财宝吗？去找吧！"
+            privateMsg!!.msgCount = i.toString()
             privateMsgList.add(privateMsg)
         }
         return privateMsgList
